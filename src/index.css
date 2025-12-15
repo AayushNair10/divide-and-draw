@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Darker sketch-like color palette */
+    --background: 48 25% 88%;   /* Warmer beige background */
+    --foreground: 220 20% 15%;  /* Darker charcoal text */
+
+    --card: 48 25% 92%;         /* Slightly darker cream card */
+    --card-foreground: 220 20% 15%;
+
+    --popover: 48 25% 92%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 196 75% 30%;     /* Darker sketch teal */
+    --primary-foreground: 48 25% 92%;
+
+    --secondary: 43 70% 55%;    /* Darker warm yellow accent */
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 220 15% 82%;       /* Darker sketch gray */
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 196 75% 30%;      /* Match primary instead of pink */
+    --accent-foreground: 48 25% 92%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 48 25% 92%;
+
+    --border: 220 20% 70%;      /* Much darker sketch border */
+    --input: 220 15% 82%;
+    --ring: 196 75% 30%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 48 25% 88%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 48 25% 88%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 48 25% 88%;
+
+    --primary: 196 75% 45%;
+    --primary-foreground: 220 20% 8%;
+
+    --secondary: 43 70% 60%;
+    --secondary-foreground: 220 20% 8%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 196 75% 45%;
+    --accent-foreground: 220 20% 8%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 220 20% 8%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 20%;
+    --ring: 196 75% 45%;
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 48 25% 88%;
+    --sidebar-primary: 196 75% 45%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 20%;
+    --sidebar-accent-foreground: 48 25% 88%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 196 75% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Kalam', cursive, system-ui, sans-serif;
+  }
+}
+
+/* Sketch-like design utilities */
+@layer utilities {
+  .sketch-border {
+    position: relative;
+    border: 2px solid hsl(var(--border));
+    border-radius: 8px;
+    background: hsl(var(--card));
+  }
+  
+  .sketch-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid hsl(var(--border));
+    border-radius: 8px;
+    background: transparent;
+    z-index: -1;
+    transform: rotate(-0.5deg);
+    opacity: 0.6;
+  }
+  
+  .sketch-border::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 1px solid hsl(var(--border));
+    border-radius: 8px;
+    background: transparent;
+    z-index: -1;
+    transform: rotate(0.3deg);
+    opacity: 0.4;
+  }
+
+  .hand-drawn-underline {
+    position: relative;
+  }
+  
+  .hand-drawn-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: hsl(var(--accent));
+    border-radius: 2px;
+    transform: scaleX(0.95) rotate(-0.2deg);
+  }
+
+  .sketch-number {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    font-weight: bold;
+    flex-shrink: 0;
+    transform: rotate(-2deg);
+  }
+  
+  .sketch-number::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid hsl(var(--border));
+    border-radius: 50%;
+    transform: rotate(4deg);
+    z-index: -1;
+  }
+}
