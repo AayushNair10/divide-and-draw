@@ -2,7 +2,7 @@
 
 A collaborative sketching game where players work together to recreate an image, one quadrant at a time.
 
-## 📖 About
+## About
 
 **Divide and Draw** is a fun, interactive drawing challenge that transforms any photo into a sketch and challenges players to recreate it collaboratively. Each player is assigned a unique quadrant of the image to draw, without seeing the complete picture. Once everyone finishes, the quadrants merge to reveal the final collaborative creation!
 
