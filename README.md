@@ -2,11 +2,6 @@
 
 A collaborative sketching game where players work together to recreate an image, one quadrant at a time.
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![Flask](https://img.shields.io/badge/Flask-3.0-green?logo=flask)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.x-red?logo=opencv)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
-
 ## 📖 About
 
 **Divide and Draw** is a fun, interactive drawing challenge that transforms any photo into a sketch and challenges players to recreate it collaboratively. Each player is assigned a unique quadrant of the image to draw, without seeing the complete picture. Once everyone finishes, the quadrants merge to reveal the final collaborative creation!
