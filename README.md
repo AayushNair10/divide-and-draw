@@ -118,6 +118,53 @@ Navigate to `http://localhost:5173` in your browser.
 3. **Start Drawing** - Each player draws their assigned quadrant using the reference sketch
 4. **Final Reveal** - See how your team's collaborative drawing compares to the original!
 
+## Project Structure
+
+```
+
+divide-and-draw/
+├── backend/
+│   ├── __pycache__/
+│   ├── .env                 # Environment variables (API keys)
+│   ├── .gitignore
+│   ├── main.py              # Flask server with image processing & AI
+│   └── requirements.txt     # Python dependencies
+├── dist/                    # Production build output
+├── node_modules/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── game/
+│   │   │   ├── CountdownScreen.tsx # Countdown
+│   │   │   ├── DrawingCanvas.tsx   # Drawing board
+│   │   │   ├── GameProgress.tsx    # Track quadrant, player
+│   │   │   ├── GameTimer.tsx       # Countdown
+│   │   │   └── ReferenceSketch.tsx # Converted sketch
+│   │   ├── ui/              # Shadcn UI components
+│   │   ├── DarkModeToggle.tsx
+│   │   ├── GameRules.tsx
+│   │   ├── HeroSection.tsx
+│   │   └── LoadingScreen.tsx
+│   ├── hooks/
+│   ├── lib/
+│   ├── pages/
+│   │   ├── Begin.tsx        # Game setup page
+│   │   ├── Draw.tsx         # Drawing canvas page
+│   │   ├── Index.tsx        # Landing page
+│   │   ├── NotFound.tsx     # 404 page
+│   │   └── Results.tsx      # Final reveal + AI enhancement
+│   ├── App.css
+│   ├── App.tsx              # Main app component
+│   ├── index.css            # Global styles
+│   └── main.tsx             # Entry point
+├── .gitignore
+├── package.json
+├── tailwind.config.ts
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+
 ## Image Processing Pipeline
 
 The backend uses a sophisticated image processing pipeline:
@@ -143,18 +190,19 @@ This project incorporates several Human-Computer Interaction principles:
 
 ## Future Enhancements
 
-- [ ] **AI Enhancement** - AI reinterprets the team's drawing to create unique artistic results
-- [ ] **Accuracy Scoring** - Calculate how closely the drawing matches the original
-- [ ] **Online Multiplayer** - Play with friends remotely
-- [ ] **Gallery** - Save and share your collaborative creations
-- [ ] **More Game Modes** - Speed rounds, blind drawing, etc.
+- **AI Enhancement** - AI reinterprets the team's drawing to create unique artistic results
+- **Accuracy Scoring** - Calculate how closely the drawing matches the original
+- **Online Multiplayer** - Play with friends remotely
+- **Gallery** - Save and share your collaborative creations
+- **More Game Modes** - Speed rounds, blind drawing, etc.
 
 ## Author
 
 **Aayush Nair**
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+```
