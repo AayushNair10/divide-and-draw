@@ -6,6 +6,11 @@ import numpy as np
 from io import BytesIO
 import base64
 from PIL import Image
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -236,6 +241,83 @@ def evaluate():
             'visualization': vis_b64
         })
     except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/enhance', methods=['POST'])
+def enhance_with_ai():
+    """Use Gemini to analyze the drawing and generate an improved version."""
+    try:
+        from google import genai
+        from google.genai import types
+        
+        data = request.get_json()
+        merged_image = data.get('merged')
+        
+        if not merged_image:
+            return jsonify({'error': 'No image provided'}), 400
+        
+        # Remove data URL prefix if present
+        if merged_image.startswith('data:'):
+            merged_image = merged_image.split(',')[1]
+        
+        # Decode base64 to bytes
+        image_bytes = base64.b64decode(merged_image)
+        
+        # Get original image dimensions
+        original_img = Image.open(BytesIO(image_bytes))
+        original_width, original_height = original_img.size
+        
+        # Initialize Gemini client with API key from .env
+        client = genai.Client(api_key=os.getenv('KEY'))
+        
+        # Generate enhanced image using Gemini
+        response = client.models.generate_content(
+            model="gemini-2.0-flash-exp-image-generation",
+            contents=[
+                types.Part.from_bytes(data=image_bytes, mime_type="image/png"),
+                "Look at this collaborative sketch drawing. Generate a clean, polished, and professional version of what this sketch is trying to depict. Make it look like a finished illustration while keeping the same subject matter and composition."
+            ],
+            config=types.GenerateContentConfig(
+                response_modalities=['TEXT', 'IMAGE']
+            )
+        )
+        
+        # Extract the generated image and description
+        enhanced_image_bytes = None
+        description = None
+        
+        for part in response.candidates[0].content.parts:
+            if part.text is not None:
+                description = part.text
+            elif part.inline_data is not None:
+                enhanced_image_bytes = part.inline_data.data
+        
+        if not enhanced_image_bytes:
+            return jsonify({'error': 'Failed to generate enhanced image'}), 500
+        
+        # Resize the generated image to match original dimensions
+        enhanced_img = Image.open(BytesIO(enhanced_image_bytes))
+        enhanced_img_resized = enhanced_img.resize(
+            (original_width, original_height), 
+            Image.Resampling.LANCZOS
+        )
+        
+        # Convert resized image back to bytes
+        output_buffer = BytesIO()
+        enhanced_img_resized.save(output_buffer, format='PNG')
+        resized_bytes = output_buffer.getvalue()
+        
+        enhanced_image_b64 = base64.b64encode(resized_bytes).decode('utf-8')
+        enhanced_data_url = f"data:image/png;base64,{enhanced_image_b64}"
+        
+        return jsonify({
+            'success': True,
+            'description': description or "AI-generated enhancement of your drawing",
+            'enhanced_image': enhanced_data_url
+        })
+        
+    except Exception as e:
+        print(f"Enhancement error: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
 @app.route('/')

@@ -313,7 +313,7 @@ const Begin = () => {
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 font-bold py-3 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 text-lg"
                 style={{ color: '#ffffff' }}
               >
-                🚀 Start Drawing Challenge
+                 Start Drawing Challenge
               </button>
             )}
           </div>
