@@ -120,6 +120,8 @@ Navigate to `http://localhost:5173` in your browser.
 
 ## Project Structure
 
+```
+
 divide-and-draw/
 ├── backend/
 │   ├── __pycache__/
@@ -162,6 +164,8 @@ divide-and-draw/
 ├── tsconfig.json
 ├── vite.config.ts
 └── README.md
+
+```
 
 ## Image Processing Pipeline
 
