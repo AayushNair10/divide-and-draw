@@ -1,17 +1,12 @@
-# 🎨 Divide and Draw
+# Divide and Draw
 
 A collaborative sketching game where players work together to recreate an image, one quadrant at a time.
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![Flask](https://img.shields.io/badge/Flask-3.0-green?logo=flask)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.x-red?logo=opencv)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
-
-## 📖 About
+## About
 
 **Divide and Draw** is a fun, interactive drawing challenge that transforms any photo into a sketch and challenges players to recreate it collaboratively. Each player is assigned a unique quadrant of the image to draw, without seeing the complete picture. Once everyone finishes, the quadrants merge to reveal the final collaborative creation!
 
-### ✨ Key Features
+### Key Features
 
 - **Photo to Sketch Conversion** - Upload any image and watch it transform into a clean sketch using advanced image processing
 - **Multiplayer Support** - Play solo or with 2-4 players
@@ -20,7 +15,7 @@ A collaborative sketching game where players work together to recreate an image,
 - **Final Reveal** - Side-by-side comparison of the original sketch vs. your team's creation
 - **Dark/Light Mode** - Toggle between themes for visual comfort
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -37,7 +32,7 @@ A collaborative sketching game where players work together to recreate an image,
 - **NumPy** for numerical operations
 - **Pillow** for image handling
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -113,7 +108,7 @@ The frontend will run on `http://localhost:5173`
 
 Navigate to `http://localhost:5173` in your browser.
 
-## 🎮 How to Play
+## How to Play
 
 1. **Upload an Image** - Choose any photo you want to turn into a sketch
 2. **Configure Game Settings**
@@ -123,7 +118,7 @@ Navigate to `http://localhost:5173` in your browser.
 3. **Start Drawing** - Each player draws their assigned quadrant using the reference sketch
 4. **Final Reveal** - See how your team's collaborative drawing compares to the original!
 
-## 🧠 Image Processing Pipeline
+## Image Processing Pipeline
 
 The backend uses a sophisticated image processing pipeline:
 
@@ -135,7 +130,7 @@ The backend uses a sophisticated image processing pipeline:
 6. **Adaptive Thresholding** - Extract clean line art
 7. **Morphological Operations** - Remove noise and speckles
 
-## 🎨 HCI Concepts
+## HCI Concepts
 
 This project incorporates several Human-Computer Interaction principles:
 
@@ -146,7 +141,7 @@ This project incorporates several Human-Computer Interaction principles:
 - **Aesthetic Design** - Hand-drawn fonts and sketch-style visuals
 - **Learnability** - Minimal instructions with intuitive UI
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - [ ] **AI Enhancement** - AI reinterprets the team's drawing to create unique artistic results
 - [ ] **Accuracy Scoring** - Calculate how closely the drawing matches the original
@@ -154,7 +149,7 @@ This project incorporates several Human-Computer Interaction principles:
 - [ ] **Gallery** - Save and share your collaborative creations
 - [ ] **More Game Modes** - Speed rounds, blind drawing, etc.
 
-## 👨‍💻 Author
+## Author
 
 **Aayush Nair**
 
