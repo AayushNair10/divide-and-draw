@@ -120,8 +120,6 @@ Navigate to `http://localhost:5173` in your browser.
 
 ## Project Structure
 
-```
-
 divide-and-draw/
 ├── backend/
 │   ├── __pycache__/
